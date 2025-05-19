@@ -5,7 +5,7 @@ import {
   createRootRoute,
 } from '@tanstack/react-router'
 import { TanStackRouterDevtools } from '@tanstack/react-router-devtools'
-
+import { ThemeProvider } from '@/components/theme-provider'
 import Header from '../components/Header'
 
 import appCss from '../styles.css?url'
@@ -37,6 +37,7 @@ export const Route = createRootRoute({
       <Header />
 
       <Outlet />
+
       <TanStackRouterDevtools />
     </RootDocument>
   ),
@@ -44,12 +45,19 @@ export const Route = createRootRoute({
 
 function RootDocument({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <head>
         <HeadContent />
       </head>
       <body>
-        {children}
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          {children}
+        </ThemeProvider>
         <Scripts />
       </body>
     </html>
