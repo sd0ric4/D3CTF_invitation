@@ -1,0 +1,65 @@
+/* 打印样式 - 只在实际打印时应用 */
+@media print {
+
+    /* 隐藏所有内容，只显示要打印的卡片 */
+    body>* {
+        visibility: hidden;
+    }
+
+    /* 显示要打印的卡片 */
+    #printable-card,
+    #printable-card * {
+        visibility: visible !important;
+    }
+
+    /* 调整卡片位置，使其居中并铺满整个页面 */
+    #printable-card {
+        position: fixed !important;
+        top: 0 !important;
+        left: 0 !important;
+        transform: none !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        width: 100% !important;
+        height: 100% !important;
+        max-width: none !important;
+        max-height: none !important;
+        box-shadow: none !important;
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+    }
+
+    /* 打印时隐藏动画效果 */
+    .animate-pulse,
+    .animate-spin,
+    .animate-spin-slow {
+        animation: none !important;
+    }
+
+    /* 确保打印时背景渐变可见 */
+    .invitation-card {
+        width: 100% !important;
+        height: 100vh !important;
+        max-width: none !important;
+        box-shadow: none !important;
+        margin: 0 !important;
+        border-radius: 0 !important;
+        /* 明确指定打印时的背景颜色和渐变 */
+        background-color: #020617 !important;
+        /* 深色背景作为底色 */
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: space-between !important;
+        padding: 10vh 5vw !important;
+        font-size: 180% !important;
+    }
+
+    /* 打印时调整页面设置 */
+    @page {
+        size: auto;
+        margin: 0;
+    }
+}

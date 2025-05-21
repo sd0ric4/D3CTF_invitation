@@ -19,7 +19,11 @@ import {
 } from '@/components/ui/select'
 import { useState, useEffect, useRef } from 'react'
 import { Wand2, Palette, UserCircle, Star, Printer } from 'lucide-react'
-import html2canvas from 'html2canvas-pro'
+// 导入打印样式
+import '@/printStyles.css'
+import { ThemeToggleDropdown } from '@/components/theme-toggle-dropdown'
+import { LanguageSwitcher } from '@/components/language-switcher'
+import { useTranslation } from 'react-i18next'
 export const Route = createFileRoute('/')({
   component: App,
 })
@@ -35,6 +39,7 @@ const entranceAnimations = [
 ]
 
 function App() {
+  const { t } = useTranslation()
   const [guestName, setGuestName] = useState('Guest Name')
   const [gradientFrom, setGradientFrom] = useState('purple-950')
   const [gradientTo, setGradientTo] = useState('indigo-950')
@@ -82,14 +87,14 @@ function App() {
   }
 
   const gradientOptions = [
-    { value: 'purple-950', label: 'Deep Purple' },
-    { value: 'blue-950', label: 'Deep Blue' },
-    { value: 'indigo-950', label: 'Deep Indigo' },
-    { value: 'slate-950', label: 'Deep Slate' },
+    { value: 'purple-950', label: t('invitation.gradientOptions.deepPurple') },
+    { value: 'blue-950', label: t('invitation.gradientOptions.deepBlue') },
+    { value: 'indigo-950', label: t('invitation.gradientOptions.deepIndigo') },
+    { value: 'slate-950', label: t('invitation.gradientOptions.deepSlate') },
   ]
 
   return (
-    <div className="h-screen flex items-center justify-center bg-gradient-to-br from-background via-background/95 to-primary/5 p-0 transition-all duration-500 overflow-hidden">
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-background via-background/95 to-primary/5 p-0 transition-all duration-500 ">
       {/* 浮动装饰元素 */}
       {decorElements.current.map((el, index) => (
         <div
@@ -134,14 +139,21 @@ function App() {
           }`}
         >
           <CardHeader className="space-y-2">
-            <div className="flex items-center space-x-2">
-              <Wand2 className="w-5 h-5 text-primary animate-in spin-in-180 duration-500" />
-              <CardTitle className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary to-primary/60">
-                自定义邀请函
-              </CardTitle>
+            {' '}
+            <div className="flex items-center justify-between">
+              <div className="flex items-center space-x-2">
+                <Wand2 className="w-5 h-5 text-primary animate-in spin-in-180 duration-500" />
+                <CardTitle className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary to-primary/60">
+                  {t('invitation.customTitle')}
+                </CardTitle>
+              </div>
+              <div className="flex items-center space-x-2">
+                <LanguageSwitcher />
+                <ThemeToggleDropdown />
+              </div>
             </div>
             <CardDescription className="text-muted-foreground/80">
-              请输入受邀人姓名及选择背景渐变颜色以生成您的邀请函
+              {t('invitation.customDescription')}
             </CardDescription>
           </CardHeader>
           <CardContent>
@@ -153,7 +165,7 @@ function App() {
                     htmlFor="guestName"
                     className="text-base transition-colors group-hover:text-primary"
                   >
-                    受邀人姓名
+                    {t('invitation.guestNameLabel')}
                   </Label>
                 </div>
                 <div className="relative max-w-xs mx-auto">
@@ -162,7 +174,7 @@ function App() {
                     value={guestName}
                     onChange={(e) => setGuestName(e.target.value)}
                     className="transition-all duration-300 border-border/50 focus:border-primary/50 focus:ring-primary/20 pr-8 text-center"
-                    placeholder="请输入姓名"
+                    placeholder={t('invitation.guestNamePlaceholder')}
                   />
                   <div className="absolute right-2 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground/30 pointer-events-none">
                     <UserCircle className="w-full h-full animate-pulse" />
@@ -174,7 +186,7 @@ function App() {
                 <div className="flex items-center space-x-2">
                   <Palette className="w-4 h-4 text-muted-foreground/70 group-hover:text-primary/70 transition-colors" />
                   <Label className="text-base transition-colors group-hover:text-primary">
-                    背景渐变颜色
+                    {t('invitation.backgroundGradient')}
                   </Label>
                 </div>
                 <div className="grid grid-cols-2 gap-3 mt-2">
@@ -183,7 +195,7 @@ function App() {
                       htmlFor="gradientFrom"
                       className="text-xs text-muted-foreground"
                     >
-                      渐变起始
+                      {t('invitation.gradientStart')}
                     </Label>
                     <Select
                       value={gradientFrom}
@@ -211,7 +223,7 @@ function App() {
                       htmlFor="gradientTo"
                       className="text-xs text-muted-foreground"
                     >
-                      渐变结束
+                      {t('invitation.gradientEnd')}
                     </Label>
                     <Select value={gradientTo} onValueChange={setGradientTo}>
                       <SelectTrigger className="transition-all duration-300 border-border/50 focus:border-primary/50 focus:ring-primary/20">
@@ -238,47 +250,16 @@ function App() {
                   className="w-full transition-all duration-300 bg-gradient-to-r from-primary via-primary/90 to-primary/80 hover:scale-[1.02] hover:shadow-lg group relative overflow-hidden"
                   onClick={(e) => {
                     e.preventDefault()
-                    // 使用html2canvas导出卡片为图片
-                    const cardElement =
-                      document.getElementById('printable-card')
-                    if (cardElement) {
-                      // 临时移除动画类
-                      const avatarImages = cardElement.querySelectorAll(
-                        '.animate-pulse, .animate-spin',
-                      )
-                      const originalClasses: string[] = []
-
-                      avatarImages.forEach((img: Element) => {
-                        originalClasses.push(img.className)
-                        img.className = img.className
-                          .replace('animate-pulse', '')
-                          .replace('animate-spin', '')
-                      })
-
-                      html2canvas(cardElement, {
-                        scale: 10, // 提高导出图片质量
-                        backgroundColor: 'transparent', // 透明背景
-                        logging: false,
-                        useCORS: true,
-                      }).then((canvas) => {
-                        // 转换为图片并下载
-                        const image = canvas.toDataURL('image/png')
-                        const link = document.createElement('a')
-                        link.href = image
-                        link.download = `${guestName}-invitation.png`
-                        link.click()
-
-                        // 恢复动画类
-                        avatarImages.forEach((img: Element, index: number) => {
-                          img.className = originalClasses[index]
-                        })
-                      })
-                    }
+                    // 先确保任何可能的动画已经完成
+                    setTimeout(() => {
+                      // 使用浏览器打印功能导出为PDF
+                      window.print()
+                    }, 100)
                   }}
                 >
                   <div className="absolute inset-0 bg-primary/10 animate-pulse"></div>
                   <Printer className="w-4 h-4 mr-2 transition-transform duration-300 group-hover:rotate-12" />
-                  保存邀请函
+                  {t('invitation.printButton')}
                 </Button>
               </div>
             </form>

@@ -1,0 +1,26 @@
+{
+  "invitation": {
+    "dearGuest": "Dear:",
+    "invitation": "INVITATION",
+    "customTitle": "自定义邀请函",
+    "customDescription": "请输入受邀人姓名及选择背景渐变颜色以生成您的邀请函",
+    "guestName": "受邀人姓名",
+    "guestNameLabel": "受邀人姓名",
+    "guestNamePlaceholder": "请输入姓名",
+    "backgroundGradient": "背景渐变颜色",
+    "gradientStart": "渐变起始",
+    "gradientEnd": "渐变结束",
+    "printButton": "打印邀请函",
+    "gradientOptions": {
+      "deepPurple": "深紫色",
+      "deepBlue": "深蓝色",
+      "deepIndigo": "深靛蓝色",
+      "deepSlate": "深石板色"
+    }
+  },
+  "theme": {
+    "light": "浅色",
+    "dark": "深色",
+    "system": "系统"
+  }
+}

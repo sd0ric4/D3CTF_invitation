@@ -10,9 +10,11 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu'
 import { cn } from '@/lib/utils'
+import { useTranslation } from 'react-i18next'
 
 export function ThemeToggleDropdown() {
   const { theme, setTheme } = useTheme()
+  const { t } = useTranslation()
 
   return (
     <DropdownMenu>
@@ -42,7 +44,7 @@ export function ThemeToggleDropdown() {
         >
           <div className="flex items-center gap-2">
             <Sun className="h-4 w-4" />
-            <span>Light</span>
+            <span>{t('theme.light')}</span>
           </div>
           {theme === 'light' && <Check className="h-4 w-4 ml-2" />}
         </DropdownMenuItem>
@@ -52,7 +54,7 @@ export function ThemeToggleDropdown() {
         >
           <div className="flex items-center gap-2">
             <Moon className="h-4 w-4" />
-            <span>Dark</span>
+            <span>{t('theme.dark')}</span>
           </div>
           {theme === 'dark' && <Check className="h-4 w-4 ml-2" />}
         </DropdownMenuItem>
@@ -62,7 +64,7 @@ export function ThemeToggleDropdown() {
         >
           <div className="flex items-center gap-2">
             <Computer className="h-4 w-4" />
-            <span>System</span>
+            <span>{t('theme.system')}</span>
           </div>
           {theme === 'system' && <Check className="h-4 w-4 ml-2" />}
         </DropdownMenuItem>

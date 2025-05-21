@@ -1,0 +1,26 @@
+{
+  "invitation": {
+    "dearGuest": "Dear:",
+    "invitation": "INVITATION",
+    "customTitle": "Customize Invitation",
+    "customDescription": "Enter guest name and select background gradient to generate your invitation",
+    "guestName": "Guest Name",
+    "guestNameLabel": "Guest Name",
+    "guestNamePlaceholder": "Enter name",
+    "backgroundGradient": "Background Gradient",
+    "gradientStart": "Gradient Start",
+    "gradientEnd": "Gradient End",
+    "printButton": "Print Invitation",
+    "gradientOptions": {
+      "deepPurple": "Deep Purple",
+      "deepBlue": "Deep Blue",
+      "deepIndigo": "Deep Indigo",
+      "deepSlate": "Deep Slate"
+    }
+  },
+  "theme": {
+    "light": "Light",
+    "dark": "Dark",
+    "system": "System"
+  }
+}

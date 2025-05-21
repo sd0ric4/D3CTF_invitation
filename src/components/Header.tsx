@@ -1,7 +1,6 @@
 'use client'
 
 import { Link } from '@tanstack/react-router'
-import { ThemeToggle } from '@/components/theme-toggle'
 import { ThemeToggleDropdown } from '@/components/theme-toggle-dropdown'
 
 export default function Header() {
@@ -32,9 +31,7 @@ export default function Header() {
         </div>
 
         <div className="flex items-center gap-4">
-          <div className="md:hidden">
-            <ThemeToggle />
-          </div>
+          <div className="md:hidden"></div>
           <div className="hidden md:block">
             <ThemeToggleDropdown />
           </div>
