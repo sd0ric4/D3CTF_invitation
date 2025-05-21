@@ -9,6 +9,7 @@ import { ThemeProvider } from '@/components/theme-provider'
 import { useTranslation } from 'react-i18next'
 
 import appCss from '../styles.css?url'
+import printCss from '../printStyles.css?url'
 
 export const Route = createRootRoute({
   head: () => {
@@ -29,6 +30,10 @@ export const Route = createRootRoute({
         {
           rel: 'stylesheet',
           href: appCss,
+        },
+        {
+          rel: 'stylesheet',
+          href: printCss,
         },
         // Favicon链接
         {
