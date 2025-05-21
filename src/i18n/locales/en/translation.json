@@ -1,4 +1,7 @@
 {
+  "common": {
+    "title": "D³CTF Invitation"
+  },
   "invitation": {
     "dearGuest": "Dear:",
     "invitation": "INVITATION",

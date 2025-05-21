@@ -1,4 +1,7 @@
 {
+  "common": {
+    "title": "D³CTF 邀请函"
+  },
   "invitation": {
     "dearGuest": "Dear:",
     "invitation": "INVITATION",
