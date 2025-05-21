@@ -1,6 +1,8 @@
 import { Card } from '@/components/ui/card'
 import { Avatar, AvatarImage, AvatarFallback } from '@/components/ui/avatar'
 import { useTranslation } from 'react-i18next'
+import binaryNinjaSvg from '@/icon/binary_ninja.svg'
+import googleCloudSvg from '@/icon/google_cloud.svg'
 
 interface InvitationCardProps {
   guestName: string
@@ -85,7 +87,7 @@ export function InvitationCard({
           >
             <Avatar className="w-8 h-8 print:w-18 print:h-18">
               <AvatarImage
-                src="/src/icon/binary_ninja.svg"
+                src={binaryNinjaSvg}
                 alt="Binary Ninja"
                 className="object-contain animate-pulse group-hover/link:animate-spin print:animate-none"
               />
@@ -103,7 +105,7 @@ export function InvitationCard({
           >
             <Avatar className="w-8 h-8 print:w-18 print:h-18">
               <AvatarImage
-                src="/src/icon/google_cloud.svg"
+                src={googleCloudSvg}
                 alt="Google Cloud"
                 className="object-contain animate-pulse group-hover/link:animate-spin print:animate-none"
               />
