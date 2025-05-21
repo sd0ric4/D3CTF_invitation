@@ -34,10 +34,7 @@ export const Route = createRootRoute({
 
   component: () => (
     <RootDocument>
-      <Header />
-
       <Outlet />
-
       <TanStackRouterDevtools />
     </RootDocument>
   ),

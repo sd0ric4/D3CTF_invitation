@@ -1,0 +1,111 @@
+/* 自定义动画效果 */
+@keyframes float {
+    0% {
+        transform: translateY(0px) rotate(0deg);
+    }
+
+    50% {
+        transform: translateY(-15px) rotate(5deg);
+    }
+
+    100% {
+        transform: translateY(5px) rotate(-5deg);
+    }
+}
+
+@keyframes float-reverse {
+    0% {
+        transform: translateY(0px) rotate(0deg);
+    }
+
+    50% {
+        transform: translateY(15px) rotate(-5deg);
+    }
+
+    100% {
+        transform: translateY(-5px) rotate(5deg);
+    }
+}
+
+@keyframes spin-slow {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes twinkle {
+
+    0%,
+    100% {
+        opacity: 0.2;
+        transform: scale(0.8);
+    }
+
+    50% {
+        opacity: 0.8;
+        transform: scale(1.2);
+    }
+}
+
+@keyframes bounce-subtle {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+@keyframes slide-random {
+    0% {
+        transform: translate(var(--random-x-start), var(--random-y-start));
+        opacity: 0;
+    }
+
+    100% {
+        transform: translate(0, 0);
+        opacity: 1;
+    }
+}
+
+.animate-float-slow {
+    animation: float 8s ease-in-out infinite alternate;
+}
+
+.animate-float-medium {
+    animation: float 5s ease-in-out infinite alternate;
+}
+
+.animate-float-fast {
+    animation: float 3s ease-in-out infinite alternate;
+}
+
+.animate-float-reverse {
+    animation: float-reverse 6s ease-in-out infinite alternate;
+}
+
+.animate-spin-slow {
+    animation: spin-slow 8s linear infinite;
+}
+
+.animate-twinkle {
+    animation: twinkle 3s ease-in-out infinite;
+}
+
+.animate-bounce-subtle {
+    animation: bounce-subtle 2s ease-in-out infinite;
+}
+
+/* 随机入场动画 */
+.animate-slide-random {
+    --random-x-start: calc(var(--x-direction) * 50px);
+    --random-y-start: calc(var(--y-direction) * 50px);
+    animation: slide-random 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
