@@ -3,8 +3,10 @@
     "title": "D³CTF 邀请函"
   },
   "invitation": {
-    "dearGuest": "Dear",
-    "invitation": "INVITATION",
+    "opening": "诚邀",
+    "closing": "参加 D³CTF 2025 赛事",
+    "invitation": "邀请函",
+    "sponsoredBy": "赛事赞助",
     "customTitle": "自定义邀请函",
     "customDescription": "请输入受邀人姓名及选择背景渐变颜色以生成您的邀请函",
     "guestName": "受邀人姓名",

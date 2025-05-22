@@ -46,7 +46,7 @@ export function InvitationCard({
     >
       <div className="flex-1 flex flex-col justify-evenly">
         {/* CTF Logo */}
-        <div className="my-6 print:my-16 print:mb-24">
+        <div className="my-6 print:my-4">
           <h1 className="text-6xl font-bold text-blue-500 print:text-8xl">
             {ctfName === 'D³ctf' ? (
               <>
@@ -67,54 +67,62 @@ export function InvitationCard({
 
         {/* Guest Section */}
         <div className="my-8 print:my-20">
-          <p className="text-xl text-gray-200 mb-4 print:text-3xl">
-            {t('invitation.dearGuest')}
+          <p className="text-xl text-gray-200 print:text-3xl">
+            {t('invitation.opening')}
           </p>
-          <p className="text-3xl text-blue-400 print:text-5xl font-bold">
+          <p className="text-3xl text-blue-400 my-2 print:text-5xl font-bold">
             {guestName}
           </p>
+          <p className="text-xl text-gray-200 print:text-3xl">
+            {t('invitation.closing')}
+          </p>
         </div>
-      </div>
 
-      {/* Sponsors */}
-      <div className="mt-auto mb-3 print:mt-16 print:mb-16">
-        <div className="flex justify-between items-center w-full px-1 print:justify-between print:px-[5%] print:gap-4">
-          <a
-            href="https://binary.ninja"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-1 group/link hover:scale-105 transition-transform"
-          >
-            <Avatar className="w-8 h-8 print:w-18 print:h-18">
-              <AvatarImage
-                src={binaryNinjaSvg}
-                alt="Binary Ninja"
-                className="object-contain animate-pulse group-hover/link:animate-spin print:animate-none"
-              />
-              <AvatarFallback>BN</AvatarFallback>
-            </Avatar>
-            <span className="text-xs font-bold text-gray-200 whitespace-nowrap group-hover/link:text-blue-400 transition-colors print:text-2xl">
-              BINARYNINJA
-            </span>
-          </a>
-          <a
-            href="https://cloud.google.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-1 group/link hover:scale-105 transition-transform"
-          >
-            <Avatar className="w-8 h-8 print:w-18 print:h-18">
-              <AvatarImage
-                src={googleCloudSvg}
-                alt="Google Cloud"
-                className="object-contain animate-pulse group-hover/link:animate-spin print:animate-none"
-              />
-              <AvatarFallback>GC</AvatarFallback>
-            </Avatar>
-            <span className="text-xs font-bold text-gray-200 whitespace-nowrap group-hover/link:text-blue-400 transition-colors print:text-2xl">
-              Google Cloud
-            </span>
-          </a>
+        {/* Sponsors */}
+        <div className="mt-auto mb-3 print:my-4">
+          <div className="my-2 print:my-10">
+            <p className="text-l text-gray-200 print:text-xl">
+              {t('invitation.sponsoredBy')}
+            </p>
+          </div>
+          <div className="flex justify-between items-center w-full px-1 print:justify-between print:px-[5%] print:gap-4">
+            <a
+              href="https://binary.ninja"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-1 group/link hover:scale-105 transition-transform"
+            >
+              <Avatar className="w-8 h-8 print:w-18 print:h-18">
+                <AvatarImage
+                  src={binaryNinjaSvg}
+                  alt="Binary Ninja"
+                  className="object-contain animate-pulse group-hover/link:animate-spin print:animate-none"
+                />
+                <AvatarFallback>BN</AvatarFallback>
+              </Avatar>
+              <span className="text-xs font-bold text-gray-200 whitespace-nowrap group-hover/link:text-blue-400 transition-colors print:text-2xl">
+                Binary Ninja
+              </span>
+            </a>
+            <a
+              href="https://cloud.google.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-1 group/link hover:scale-105 transition-transform"
+            >
+              <Avatar className="w-8 h-8 print:w-18 print:h-18">
+                <AvatarImage
+                  src={googleCloudSvg}
+                  alt="Google Cloud"
+                  className="object-contain animate-pulse group-hover/link:animate-spin print:animate-none"
+                />
+                <AvatarFallback>GC</AvatarFallback>
+              </Avatar>
+              <span className="text-xs font-bold text-gray-200 whitespace-nowrap group-hover/link:text-blue-400 transition-colors print:text-2xl">
+                Google Cloud
+              </span>
+            </a>
+          </div>
         </div>
       </div>
     </Card>

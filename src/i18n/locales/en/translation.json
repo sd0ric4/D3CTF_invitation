@@ -3,8 +3,10 @@
     "title": "D³CTF Invitation"
   },
   "invitation": {
-    "dearGuest": "Dear",
-    "invitation": "INVITATION",
+    "opening": "Dear",
+    "closing": "is cordially invited to attend the D³CTF 2025 event",
+    "invitation": "Invitation",
+    "sponsoredBy": "Sponsored by",
     "customTitle": "Customize Invitation",
     "customDescription": "Enter guest name and select background gradient to generate your invitation",
     "guestName": "Guest Name",
