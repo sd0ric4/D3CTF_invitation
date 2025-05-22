@@ -3,7 +3,7 @@
     "title": "D³CTF Invitation"
   },
   "invitation": {
-    "dearGuest": "Dear:",
+    "dearGuest": "Dear",
     "invitation": "INVITATION",
     "customTitle": "Customize Invitation",
     "customDescription": "Enter guest name and select background gradient to generate your invitation",

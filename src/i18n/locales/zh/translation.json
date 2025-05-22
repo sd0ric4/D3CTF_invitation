@@ -3,7 +3,7 @@
     "title": "D³CTF 邀请函"
   },
   "invitation": {
-    "dearGuest": "Dear:",
+    "dearGuest": "Dear",
     "invitation": "INVITATION",
     "customTitle": "自定义邀请函",
     "customDescription": "请输入受邀人姓名及选择背景渐变颜色以生成您的邀请函",
