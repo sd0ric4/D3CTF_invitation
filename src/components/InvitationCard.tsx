@@ -96,7 +96,7 @@ export function InvitationCard({
                 <AvatarImage
                   src={binaryNinjaSvg}
                   alt="Binary Ninja"
-                  className="object-contain animate-pulse group-hover/link:animate-spin print:animate-none"
+                  className="object-contain group-hover/link:animate-spin print:animate-none"
                 />
                 <AvatarFallback>BN</AvatarFallback>
               </Avatar>
@@ -114,7 +114,7 @@ export function InvitationCard({
                 <AvatarImage
                   src={googleCloudSvg}
                   alt="Google Cloud"
-                  className="object-contain animate-pulse group-hover/link:animate-spin print:animate-none"
+                  className="object-contain group-hover/link:animate-spin print:animate-none"
                 />
                 <AvatarFallback>GC</AvatarFallback>
               </Avatar>
