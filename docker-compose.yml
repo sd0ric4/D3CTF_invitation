@@ -1,0 +1,9 @@
+version: '3'
+services:
+  invitation:
+    image: invitation:latest
+    ports:
+      - '13008:3000'
+    restart: unless-stopped
+    environment:
+      - NODE_ENV=production
