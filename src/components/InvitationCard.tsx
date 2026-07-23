@@ -42,7 +42,7 @@ export function InvitationCard({
 
   return (
     <Card
-      className={`invitation-card w-1/4 min-w-[320px] max-w-[400px] aspect-[9/16] bg-gradient-to-r ${gradientClassNames} px-4 py-10 text-center flex flex-col print:aspect-auto print:min-w-full print:min-h-screen print:max-w-none print:py-16`}
+      className={`invitation-card w-[min(340px,85vw)] mx-auto lg:w-1/4 lg:min-w-[320px] lg:max-w-[400px] aspect-[9/16] bg-gradient-to-r ${gradientClassNames} px-4 py-10 text-center flex flex-col print:aspect-auto print:min-w-full print:min-h-screen print:max-w-none print:py-16`}
     >
       <div className="flex-1 flex flex-col justify-evenly">
         {/* CTF Logo */}
